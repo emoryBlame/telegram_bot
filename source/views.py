@@ -54,7 +54,7 @@ class WebhooksView(GenericWebhooks, APIView):
 		#self.get_updates(self, *args, **kwargs)
 		data = json.loads(self.request.body)
 		print(data)
-		chat = data["message"]["chat"]
+		chat = data["from"]["id"]
 		serializer = UserSerializers(data=chat)
 		if data["message"]["text"] == "/start" and serializer.is_valid():
 			serializer.save()
