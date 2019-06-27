@@ -1,0 +1,27 @@
+{
+	'update_id': 243990471,
+	'message':
+		{
+			'message_id': 87,
+		 	'from': 
+		 		{
+		 			'id': 369657072,
+		 			'is_bot': False,
+		 			'first_name': 'Vladislav',
+		 			'last_name': 'Stetsko',
+		 			'username': 'EmoryBlame',
+		 			'language_code': 'ru'
+		 		},
+		 	'chat':
+		 		{
+		 			'id': 369657072,
+		 			'first_name': 'Vladislav',
+		 			'last_name': 'Stetsko',
+		 			'username':'EmoryBlame',
+		 			'type': 'private'
+		 		},
+		 	'date':1561641399,
+		 	'text': '/start',
+		 	'entities': [{'offset': 0, 'length': 6, 'type': 'bot_command'}]
+		}
+}

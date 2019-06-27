@@ -57,7 +57,7 @@ class GenericAPIMethods():
 		print(response.text)
 
 	def set_webhook_url(self, *args, **kwargs):
-		url = 'https://d4613b86.ngrok.io/source/webhooks/'
+		url = 'https://420e4957.ngrok.io/source/webhooks/'
 
 		response = requests.post(
 			settings.TELEGRAM_EMORY_BOT_URL + "bot" +
@@ -125,7 +125,7 @@ class GenericAPIMethods():
 			path
 			)
 
-		return path
+		return "users/" + str(user_id) + '.jpg'
 
 
 
@@ -134,16 +134,17 @@ class GenericAPIMethods():
 class GenericWebhooks(MarkUps): 
 	""" generic webhooks methods to get response for each user request """
 
-	def send_text_webhook(self, chat, text):
+	def send_text_webhook(self, chat_id, text, message=None):
 
 		gen_inf = GeneralInformation.objects.filter(title=text) 
-
-		if gen_inf:
-			message = gen_inf.last().text
+		if message:
+			bot.send_message(chat["id"], message, reply_markup=self.main_manu())
 		else:
-			message = "Выберите пункт из меню"
-		
-		bot.send_message(chat["id"], message, reply_markup=self.main_manu())
+			if gen_inf:
+				message = gen_inf.last().text
+			else:
+				message = "Выберите пункт из меню"
+			bot.send_message(chat["id"], message, reply_markup=self.main_manu())
 
 
 	def send_main_manu_webhook(self, message):

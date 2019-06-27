@@ -26,3 +26,10 @@ class MarkUps():
 		markup.add(*itembtns)
 
 		return markup
+
+
+	def user_data(self, user_id):
+		markup = types.ReplyKeyboardMarkup(row_width=1)
+		category = MenuCategories.objects.get(title="Пользовательское")
+		items = GeneralInformation.objects.filter(contain__id=category.id)
+		itembtns = []

@@ -16,3 +16,11 @@ class GeneralInformation(models.Model):
 
 	def __str__(self):
 		return self.title
+
+
+class Messages(models.Model):
+	title = models.CharField(max_length=50)
+	text = models.TextField(max_length=1000)
+
+	def __str__(self):
+		return self.title

@@ -11,11 +11,16 @@ from userprofile.models import UserProfile
 class UserSerializers(serializers.ModelSerializer):
 	""" serialize UserProfile model and some additional methods"""
 
-	#type = CharField(max_length=20)
-
 	class Meta:
 		model = UserProfile
-		fields = ('first_name', 'last_name', 'username')#, 'phone')
+		fields = ('first_name', 'last_name', 'username', 'tel_id')#, 'phone')
+
+	# def save(self, **kwargs):
+	# 	print(kwargs)
+	# 	user = super().save(**kwargs)
+	# 	user.tel_id = kwargs["id"]
+	# 	user.save()
+	# 	return user
 
 
 class UserPhotoSerializers(serializers.ModelSerializer):
